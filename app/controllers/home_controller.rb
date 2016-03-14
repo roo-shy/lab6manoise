@@ -10,8 +10,8 @@ class HomeController < ApplicationController
     timeline = ids_of_my_followers << @current_user.id
     @manoises = Manoise.where(user_id: timeline).order("created_at DESC").page params[:page]
     @users = User.all
-                 .reject {|u| @current_user.following? u}
-                 .reject {|u| @current_user == u}
+                #  .reject {|u| @current_user.following? u}
+                #  .reject {|u| @current_user == u}
   end
 
   def create
@@ -23,5 +23,5 @@ class HomeController < ApplicationController
      render :new
     end
   end
-  
+
 end

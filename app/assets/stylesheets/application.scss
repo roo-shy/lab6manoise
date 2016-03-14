@@ -2,6 +2,9 @@
 @import 'bootstrap';
 @import 'home';
 
+.body{
+  background: #000000;
+}
 .container{
   margin-top: 50px;
 }
@@ -15,5 +18,9 @@ ul {
   justify-content: flex-start;
   list-style: none;
   display: inline-block;
-  float:left;
+  padding-left:0px;
+}
+
+li{
+  padding-left:0px;
 }
