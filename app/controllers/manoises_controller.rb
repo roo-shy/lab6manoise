@@ -15,6 +15,7 @@ class ManoisesController < ApplicationController
      render :new
     end
   end
+  
 
   def index
     @manoise = Manoise.all

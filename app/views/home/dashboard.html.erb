@@ -1,20 +1,24 @@
-
-     <div class="col-md-6">
+<div class="container">
+     <div class="col-md-12">
     <h3>Welcome back <%= @current_user.username %>!</h3>
-    <h1>Timeline</h1>
     <br/>
-    <%= simple_form_for @manoise do |f| %>
-      <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here", type: "text", class: "form-control" %>
-      <%= f.submit class: "btn btn-primary" %>
-      <% end %>
 
-   <% @manoises.each do |manoise| %>
-         <p> <%= manoise.username.post %></p>
-         <p><%= user.username %></p>
-   <% end %>
-    <%= paginate @manoises %>
+    <%= simple_form_for @manoise do |f| %>
+      <div class="form-group">
+      <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here", input_html: {class: "form-control"} %>
+      </div>
+        <div class="form-group">
+      <%= f.button :submit, "Post", class: "btn btn-primary btn-block" %>
+      <% end %>
 </div>
-     <div class="col-md-6">
+  <ul>
+   <% @manoises.each do |manoise| %>
+          <li><%= manoise.post %></li>
+         <li><%= manoise.user.username %></li>
+   <% end %>
+ </ul>
+    <%= paginate @manoises %>
+
 <h2>People You Follow</h2>
     <ul>
       <% @current_user.following_users.each do |user| %>
@@ -25,16 +29,16 @@
     </ul>
   <h3>Other People You Might Find Interesting</h3>
     <ul>
-
-
-      <% @users.each do |user| %>
-        <li><%= user.username %>
+ <% @users.each do |user| %>
+        <li><%= user.username %></li>
         <% if @current_user.following? user %>
                 <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
             <% else %>
               <%= link_to "Follow", follow_user_path(id: user.id), method: :post %>
           <% end %>
         </li>
+
       <% end %>
     </ul>
+  </div>
   </div>

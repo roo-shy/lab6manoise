@@ -1,6 +1,15 @@
-<%= simple_form_for @user do |f| %>
-     <%= f.input :username, required: false, autofocus: true, label: false, placeholder: "Username", input_html: {class: "form-control"} %>
-     <%= f.input :password, required: false, label: false, placeholder: "Password", input_html: {class: "form-control"} %>
-     <%= f.input :password_confirmation, required: false, label: false, placeholder: "Password Confirmation", input_html: {class: "form-control"} %>
-     <%= f.button :submit, "Sign Up", class: "btn btn-primary btn-block" %>
-     <% end %>
+<div class="container">
+  <h1 div class="text-center">Sign Up!</h1>
+  <%= simple_form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.input :username, required: false, autofocus: true, label: false, placeholder: "Username", input_html: {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :password, required: false, label: false, placeholder: "Password", input_html: {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :password_confirmation, required: false, label: false, placeholder: "Password Confirmation", input_html: {class: "form-control"} %>
+  </div>
+  <%= f.button :submit, "Sign Up", class: "btn btn-primary btn-block" %>
+  <% end %>
+</div>
