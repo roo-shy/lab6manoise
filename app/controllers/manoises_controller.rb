@@ -6,12 +6,14 @@ class ManoisesController < ApplicationController
   end
 
   def create
-    @manoise = Manoise.new params.require(:manoise).permit(:post)
-    @manoise.user = @current.user
-      if @manoise.save
-        redirect_to dashboard_path, notice: "Make Some Manoise!"
+    if authenticate_user
+      @post = Post.new post_params
+      @post.user = current_user
+      if @post.save
+        redirect_to root_path, notice: 'Make Some Manoise!'
       else
-         render :dashboard
+        redirect_to :back, alert: 'Please Try Again'
       end
+    end
   end
 end

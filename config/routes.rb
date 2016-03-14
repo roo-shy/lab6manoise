@@ -2,18 +2,19 @@ Rails.application.routes.draw do
 
 
   get 'sign_up' => 'users#new', as: :new_user
-  post 'sign_up' => 'users#create', as: :users
+  post 'sign_up' => 'users#create'
 
-  post 'manoises' => 'manoises#create', as: :manoises
+  get 'manoises' => 'manoises#new', as: :manoises
+  post 'manoises' => 'manoises#create'
 
   get 'sign_in' => 'session#new', as: :sign_in
-  post 'auth' => 'session#create', as: :auth
-  delete 'sign_out' => 'session#delete', as: :sign_out
+  post 'auth' => 'session#create'
+  delete 'sign_out' => 'session#delete'
 
   get 'dashboard' => 'home#dashboard', as: :dashboard
 
-  post "/follow/:id" => 'users#follow', as: :follow
-  delete "/follow/:id" => 'users#delete', as: :unfollow
+  post "/follow/:id" => 'users#follow'
+  delete "/follow/:id" => 'users#delete'
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
