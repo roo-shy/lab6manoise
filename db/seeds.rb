@@ -7,5 +7,5 @@ end
 20.times do
   user = User.all.sample
   created_at = [*1..30].sample.days.ago
-  Manoise.create user: user, content: Faker::Hacker.say_something_smart, created_at: created_at, updated_at: created_at
+  Manoise.create user: user, post: Faker::Hacker.say_something_smart, created_at: created_at, updated_at: created_at
 end

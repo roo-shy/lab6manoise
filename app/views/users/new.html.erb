@@ -1,0 +1,6 @@
+<%= simple_form_for @user do |f| %>
+     <%= f.input :username, required: false, autofocus: true, label: false, placeholder: "Username", input_html: {class: "form-control"} %>
+     <%= f.input :password, required: false, label: false, placeholder: "Password", input_html: {class: "form-control"} %>
+     <%= f.input :password_confirmation, required: false, label: false, placeholder: "Password Confirmation", input_html: {class: "form-control"} %>
+     <%= f.button :submit, "Sign Up", class: "btn btn-primary btn-block" %>
+     <% end %>
