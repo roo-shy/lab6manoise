@@ -1,46 +1,40 @@
-<main>
-  <article>
+
+     <div class="col-md-6">
     <h3>Welcome back <%= @current_user.username %>!</h3>
     <h1>Timeline</h1>
     <br/>
     <%= simple_form_for @manoise do |f| %>
-      <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here" %>
+      <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here", type: "text", class: "form-control" %>
       <%= f.submit class: "btn btn-primary" %>
       <% end %>
-  <% @manoises.each do |manoise| %>
-    <div class = "manoise">
-      <%= manoise.content %>
-      <p class="meta">
-        <em><%= manoise.user.username %>
-          <%= distance_of_time_in_words_to_now(manoise.created_at)%> ago
-        </em>
-      </p>
-    </div>
-    <% end %>
-    <%= paginate @manoises %>
 
-      </article>
-    <br/>
-    <aside>
+   <% @manoises.each do |manoise| %>
+         <p> <%= manoise.username.post %></p>
+         <p><%= user.username %></p>
+   <% end %>
+    <%= paginate @manoises %>
+</div>
+     <div class="col-md-6">
 <h2>People You Follow</h2>
     <ul>
       <% @current_user.following_users.each do |user| %>
         <li><%= user.username %>
-            <%= link_to "Unfollow", unfollow_path(id: user.id), method: :delete %>
+            <%= link_to "Unfollow", stop_follow_user_path(id: user.id), method: :post %>
         </li>
       <% end %>
     </ul>
   <h3>Other People You Might Find Interesting</h3>
     <ul>
+
+
       <% @users.each do |user| %>
         <li><%= user.username %>
-            <% if @current_user.following? user %>
-                Follows!
+        <% if @current_user.following? user %>
+                <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
             <% else %>
-              <%= link_to "Follow this user", follow_path(id: user.id), method: :post %>
+              <%= link_to "Follow", follow_user_path(id: user.id), method: :post %>
           <% end %>
         </li>
       <% end %>
     </ul>
-  </aside>
-  </main>
+  </div>

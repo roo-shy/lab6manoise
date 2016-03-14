@@ -1,5 +1,5 @@
 <h1 div class="text-center">Sign In!</h1>
-<%= form_tag auth_path, method: :post, class: "form-signup" do %>
+<%= form_tag do %>
 <div class="form-group">
   <%= label_tag :username %>
   <%= text_field_tag :username, params[:username], class: "form-control" %>

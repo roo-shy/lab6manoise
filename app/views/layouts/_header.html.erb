@@ -15,15 +15,11 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if @current_user %>
-        <li><a href="#">Timeline</a></li>
-        <li><a href="#">People</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= @current_user.username %> <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Followers</a></li>
-            <li class="divider"></li>
-            <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
+      <li><%= link_to "Timeline", dashboard_path %><li>
+        <li><%= link_to "Users" %><li>
+        <li><%= link_to "Profile" %><li>
+        <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
+
           </ul>
         </li>
         <% else %>
