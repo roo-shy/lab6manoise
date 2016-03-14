@@ -13,4 +13,15 @@ class HomeController < ApplicationController
                  .reject {|u| @current_user.following? u}
                  .reject {|u| @current_user == u}
   end
+
+  def create
+    @manoise = Manoise.new params.require(:manoise).permit(:post)
+    @manoise.user = @manoise_user
+    if @manoise.save
+     redirect_to dashboard_path
+    else
+     render :new
+    end
+  end
+  
 end
