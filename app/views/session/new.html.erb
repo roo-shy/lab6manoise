@@ -1,0 +1,18 @@
+<h1 div class="text-center">Sign In!</h1>
+<%= form_tag auth_path, method: :post, class: "form-signup" do %>
+<div class="form-group">
+  <%= label_tag :username %>
+  <%= text_field_tag :username, params[:username], class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag :password %>
+  <%= password_field_tag :password, params[:password], class: "form-control" %>
+</div>
+
+<div>
+  <%= submit_tag "Sign In", class: "btn btn-primary btn-block" %>
+</div>
+<br/>
+<p>New Account
+  <%= link_to "Sign Up", new_user_path %></p>
+<% end %>
