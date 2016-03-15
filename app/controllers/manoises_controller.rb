@@ -8,13 +8,14 @@ class ManoisesController < ApplicationController
 
   def create
     @manoise = Manoise.new params.require(:manoise).permit(:post)
-    @manoise.user = @manoise_user
+    @manoise.user = @current_user
     if @manoise.save
      redirect_to dashboard_path
     else
      render :new
     end
   end
+
 
   def index
     @manoise = Manoise.all

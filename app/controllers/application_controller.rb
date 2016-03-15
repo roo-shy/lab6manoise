@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
       end
   end
 
+
   helper_method :user_signed_in?
     def user_signed_in?
       @current_user.present?

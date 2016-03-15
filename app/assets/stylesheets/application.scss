@@ -1,3 +1,41 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'home';
+
+.body{
+  background: #000000;
+}
+.container{
+  margin-top: 50px;
+}
+
+.body{
+  background: #000000;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  display: inline;
+  padding-left:0px;
+}
+
+li{
+  padding-left:0px;
+}
+
+.btn-danger{
+  display: inline;
+}
+
+.image{
+  width:3000px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: -80px;
+}
+
+.col-md-4{
+  margin-top: 250px;
+}

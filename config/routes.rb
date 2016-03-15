@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'manoise/:id' => 'manoise#detail', as: :manoise
   get 'newmanoises' => 'manoises#new', as: :new
-  post 'manoises' => 'manoises#create', as: :manoises
+  post 'manoises/dashbord' => 'manoises#create', as: :manoises
 
   get 'sign_in' => 'session#new', as: :sign_in
   post 'sign_in' => 'session#create'
