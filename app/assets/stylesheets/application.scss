@@ -17,10 +17,14 @@ ul {
   display: flex;
   justify-content: flex-start;
   list-style: none;
-  display: inline-block;
+  display: inline;
   padding-left:0px;
 }
 
 li{
   padding-left:0px;
+}
+
+.btn-danger{
+  display: inline;
 }

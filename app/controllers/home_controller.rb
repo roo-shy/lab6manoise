@@ -1,5 +1,3 @@
-
-
 class HomeController < ApplicationController
   before_action :authenticate_user, only: [:dashboard]
 
@@ -11,12 +9,13 @@ class HomeController < ApplicationController
     ids_of_my_followers = @current_user.following_users.pluck(:id)
     timeline = ids_of_my_followers << @current_user.id
     @manoises = Manoise.where(user_id: timeline).order("created_at DESC").page params[:page]
-    @users = User.all
 
+    @users = User.all
+    @users = Kaminari.paginate_array(@users).page(params[:page]).per(20)
     puts "---"*200
     print @users[0].manoises[0]
                 #  .reject {|u| @current_user.following? u}
-                #  .reject {|u| @current_user == u}
+               #  .reject {|u| @current_user == u}
   end
 
   def create
