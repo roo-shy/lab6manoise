@@ -1,49 +1,57 @@
 <div class="container">
   <div class="col-md-2">
-    <h3>Following</h3>
+    <div class="image_profile">
+      <img src="http://www.themarysue.com/wp-content/uploads/2013/05/tumblr_mnhcizzGwr1qzfsnio3_1280-580x435.jpg" alt="" class="img-rounded" style="width:150px;"/>
+    </div>
+  </br>
+  <ul>
+    <li><%= @current_user.username.upcase %></li>
+
+    <% @current_user.following_users.each do |user| %>
+    <li>
+      <strong><%= user.username %></strong>
+      <%= link_to "Unfollow", stop_follow_user_path(id: user.id), method: :post %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<div class="col-md-8">
+  <%= simple_form_for @manoise do |f| %>
+  <div class="form-group">
+    <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here", input_html: {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, "Post", class: "btn btn-primary btn-block" %>
+    <% end %>
+
+    <h2>New Posts</h2>
     <ul>
-      <% @current_user.following_users.each do |user| %>
-      <li><%= user.username %>
-        <%= link_to "Unfollow", stop_follow_user_path(id: user.id), method: :post %>
-      </li>
+      <% @current_user.manoises.each do |manoise| %>
+      <li><%= manoise.post %>
+        <strong><%= manoise.user.username %></li></strong>
       <% end %>
     </ul>
   </div>
-  <div class="col-md-8">
 
-    <h3><%= @current_user.username.upcase %></h3>
-    <%= simple_form_for @manoise do |f| %>
-    <div class="form-group">
-      <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here", input_html: {class: "form-control"} %>
-    </div>
-    <div class="form-group">
-      <%= f.button :submit, "Post", class: "btn btn-primary btn-block" %>
+  <ul>
+    <% @users.each do |user| %>
+    <% user.manoises.reverse.each do |mn|  %>
+    <li>
+      <small><%=mn.post%></small>
+    </li>
+    <% break %>
+    <% end%>
+    <li>
+      <strong><%= user.username %></strong>
+      <% if @current_user.following? user %>
+      <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
+    <% else %>
+      <%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
       <% end %>
+    </li>
+  </br>
 
-      <h2>New Posts</h2>
-      <ul>
-        <% @current_user.manoises.each do |manoise| %>
-        <li><%= manoise.post %>
-          <%= manoise.user.username.upcase %></li>
-        <% end %>
-      </ul>
-    </div>
-
-    <ul>
-      <% @users.each do |user| %>
-        <% user.manoises.reverse.each do |mn|  %>
-          <p><small><%=mn.post%></small></p>
-          <% break %>
-        <% end%>
-      <li><%= user.username %></li>
-        <% if @current_user.following? user %>
-      <li><%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
-      <% else %>
-        <%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
-        <% end %>
-      </li></br>
-
-      <% end %>
-    </ul>
-    <nav><%= paginate @users %></nav>
-  </div>
+  <% end %>
+</ul>
+<nav><%= paginate @users %></nav>
+</div>
