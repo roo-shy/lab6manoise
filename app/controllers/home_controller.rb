@@ -12,10 +12,7 @@ class HomeController < ApplicationController
 
     @users = User.all
     @users = Kaminari.paginate_array(@users).page(params[:page]).per(20)
-    # puts "---"*200
-    # print @users[0].manoises[0]
-                #  .reject {|u| @current_user.following? u}
-                # .reject {|u| @current_user == u}
+  
   end
 
   def create
