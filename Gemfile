@@ -61,3 +61,7 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 
 gem "acts_as_follower"
+
+group :production do
+  gem 'rails_12factor'
+end
