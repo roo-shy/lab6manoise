@@ -31,8 +31,11 @@
 
     <ul>
       <% @users.each do |user| %>
+        <% user.manoises.reverse.each do |mn|  %>
+          <p>&nbsp;&nbsp;<small><%=mn.post%></small></p>
+          <% break %>
+        <% end%>
       <li><%= user.username %></li>
-      <li><%= @manoise.post %>
         <% if @current_user.following? user %>
       <li><%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
       <% else %>
