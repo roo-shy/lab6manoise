@@ -10,7 +10,7 @@ class FollowController < ApplicationController
 
   def delete
     new_user = User.find params[:id]
-    @current_user.stop_follow new_user
+    @current_user.stop_following new_user
     redirect_to dashboard_path, notice: "You have stopped following #{new_user.username}"
   end
 end
