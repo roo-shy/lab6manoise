@@ -24,11 +24,19 @@ end
 end
 
   #Seed the followers?
-  all_users = User.all
+  #
+  # users = User.all
+  # user  = users.first
+  # following = users[2..50]
+  # followers = users[3..40]
+  # following.each { |followed| user.follow(followed) }
+  # followers.each { |follower| follower.follow(user) }
 
-  all_users.each do |usr_follower|
-  all_users.each do |usr_followed|
-  # if Number.random(1,10) < 3
-  # user_follower acts_as_follower user_follower
-  end
-end
+#   all_users = User.all
+#   all_users.each do |usr_follower|
+#   all_users.each do |usr_followed|
+#   if Number.random(1,10) < 3
+#   user_follower acts_as_follower user_follower
+#   end
+#  end
+# end
