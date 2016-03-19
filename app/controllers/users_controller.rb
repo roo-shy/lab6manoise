@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user, only: [:follow, :delete]
 
+  def index
+    @user = User.all
+  end
+
   def new
     @user = User.new
   end

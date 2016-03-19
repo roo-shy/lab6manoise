@@ -7,7 +7,7 @@ class ActsAsFollowerMigration < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :follows, ["follower_id", "follower_type"],     :name => "fk_follows"
+    add_index :follows, ["follower_id", "follower_type"], :name => "fk_follows"
     add_index :follows, ["followable_id", "followable_type"], :name => "fk_followables"
   end
 
