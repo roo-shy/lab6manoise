@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   get '/users/new' => 'users#new', as: :new_user
-  post '/users' => 'users#create', as: :users
+  get '/users' => 'users#index', as: :users
 
   get 'manoise/:id' => 'manoise#detail', as: :manoise
   get 'newmanoises' => 'manoises#new', as: :new

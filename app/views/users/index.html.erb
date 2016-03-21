@@ -1,2 +1,17 @@
 <h1>Users#create</h1>
 <p>Find me in app/views/users/create.html.erb</p>
+<% @user.each do |user| %>
+<%= user.username %>
+<% user.manoises.reverse.each do |mn|  %>
+<li>
+  <small><%=mn.post%></small>
+</li>
+<% break %>
+<% end%>
+<li>
+<% if user.following? user %>
+<%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
+<% else %>
+<%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
+<% end %>
+<%end %>

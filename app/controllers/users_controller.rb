@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    @users = User.all
+    # @users = @current_user.following_users
     @user = User.new params.require(:user).permit(:username, :password, :password_confirmation)
     if @user.save
       session[:user_id] = @user.id

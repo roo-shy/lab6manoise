@@ -11,6 +11,8 @@
     <li>
       <strong><%= user.username %></strong>
       <%= link_to "Unfollow", stop_follow_user_path(id: user.id), method: :post %>
+      <li>Following <%= @current_user.follow_count %></li>
+      <li>Followers <%= @current_user.followers_count %></li>
     </li>
     <% end %>
   </ul>
