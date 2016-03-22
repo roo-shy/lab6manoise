@@ -6,9 +6,10 @@ class UsersController < ApplicationController
     @user = User.all
     @user = Kaminari.paginate_array(@user).page(params[:page]).per(20)
   end
-  
+
   def show
     @user = User.find_by id: params[:id]
+    @manoises = Manoise.all 
   end
 
   def new
