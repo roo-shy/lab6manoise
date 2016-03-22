@@ -1,2 +1,20 @@
-<h1>Users#create</h1>
-<p>Find me in app/views/users/create.html.erb</p>
+<h1>Timeline</h1>
+
+<% @user.each do |user| %>
+<ul>
+<li><strong><%= user.username %></strong></li>
+<% user.manoises.reverse.each do |mn|  %>
+<li>
+  <small><%=mn.post%></small>
+
+</li>
+</ul>
+<% break %>
+<% end%>
+<% if user.following? user %>
+<%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
+<% else %>
+<%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
+<% end %>
+
+<%end %>
