@@ -1,15 +1,13 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-    <%= link_to "Manoise", root_path, class: "navbar-brand" %>
+    <%= link_to "Manoise", root_path, class: "navbar-brand", style:"color:#D1142A" %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav"></ul>
       <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Timeline", dashboard_path %></li>
       <li><%= link_to "Users", users_path  %></li>
       <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
       </ul>
     </div>
-  </div>
 </nav>
