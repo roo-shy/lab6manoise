@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
+    @user = Kaminari.paginate_array(@user).page(params[:page]).per(20)
   end
 
   def new
