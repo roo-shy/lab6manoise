@@ -6,53 +6,46 @@
   </br>
   <ul>
     <li><%= @current_user.username.upcase %></li>
-
-    <li>Following
-      <%= @current_user.follow_count %></li>
-    <li>Followers
-      <%= @current_user.followers_count %></li>
-
-  </li>
-</ul>
-</div>
-<div class="col-md-8">
-<%= simple_form_for @manoise do |f| %>
-<div class="form-group">
-  <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here", input_html: {class: "form-control"} %>
-</div>
-<div class="form-group">
-  <%= f.button :submit, "Post", class: "btn btn-primary btn-block" %>
-  <% end %>
-
-  <h2>New Posts</h2>
-  <ul>
-    <% @current_user.manoises.each do |manoise| %>
-    <li><%= manoise.post %>
-      <strong><%= manoise.user.username %></li>
-    </strong>
-    <% end %>
+    <li>Following<%= @current_user.follow_count %></li>
+    <li>Followers<%= @current_user.followers_count %></li>
   </ul>
 </div>
-
-<ul>
-  <% @users.each do |user| %>
-  <% user.manoises.reverse.each do |mn|  %>
-  <li>
-    <small><%=mn.post%></small>
-  </li>
-  <% break %>
-  <% end%>
-  <li>
-    <strong><%= link_to user.username, user_path(id: user.id) %></strong>
-    <% if @current_user.following? user %>
-    <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
-  <% else %>
-    <%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
+<div class="col-md-8">
+  <%= simple_form_for @manoise do |f| %>
+  <div class="form-group">
+    <%= f.input :post, as: :text, label: false, placeholder: "Manoise Here", input_html: {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, "Post", class: "btn btn-primary btn-block" %>
     <% end %>
-  </li>
-</br>
-
-<% end %>
+    <h2>New Posts</h2>
+    <ul>
+      <% @current_user.manoises.each do |manoise| %>
+      <li><%= manoise.post %>
+        <strong><%= manoise.user.username %></strong>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <ul>
+    <% @users.each do |user| %>
+    <% user.manoises.reverse.each do |mn|  %>
+    <li>
+      <small><%=mn.post%></small>
+    </li>
+    <% break %>
+    <% end%>
+    <li>
+      <strong><%= link_to user.username, user_path(id: user.id) %></strong>
+      <% if @current_user.following? user %>
+      <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
+    <% else %>
+      <%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
+      <% end %>
+    </li>
+  </br>
+  <% end %>
 </ul>
 <nav><%= paginate @users %></nav>
+</div>
 </div>
