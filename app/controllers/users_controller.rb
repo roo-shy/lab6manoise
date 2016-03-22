@@ -31,4 +31,9 @@ class UsersController < ApplicationController
     @current_user.stop_following user
     redirect_to dashboard_path, notice: "You just unfollowed #{user.username}"
   end
+
+  def show
+    @user=User.find_by id: params[:id]
+  end
+
 end
