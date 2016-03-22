@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @user = User.all
     @user = Kaminari.paginate_array(@user).page(params[:page]).per(20)
   end
+  
+  def show
+    @user = User.find_by id: params[:id]
+  end
 
   def new
     @user = User.new
@@ -33,8 +37,6 @@ class UsersController < ApplicationController
     redirect_to dashboard_path, notice: "You just unfollowed #{user.username}"
   end
 
-  def show
-    @user=User.find_by id: params[:id]
-  end
+
 
 end
