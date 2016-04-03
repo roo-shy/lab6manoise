@@ -1,4 +1,4 @@
-User.create username: "kacie", password: "12345678", image_url: "http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-bad-werewolf.png"
+User.create username: "kacie", password: "12345678"
 
 # Seed the users
 30.times do
