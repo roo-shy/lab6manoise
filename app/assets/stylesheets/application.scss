@@ -36,7 +36,20 @@ li{
   margin-top: -200px;
 
 }
-
 .navbar-inverse .navbar-nav > li > a{
   color:#D1142A;
+}
+
+body{
+  background-color:#ecf0f1;
+}
+
+.btn-primary{
+  background-color:#D11529;
+  border-color: #D11529;
+}
+
+.btn-primary:hover{
+  background-color:#c0392b;
+  border-color:#c0392b;
 }
