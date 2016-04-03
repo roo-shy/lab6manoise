@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by id: params[:id]
-    @manoises = Manoise.all 
+    @manoises = Manoise.all
   end
 
   def new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @users = User.all
     # @users = @current_user.following_users
-    @user = User.new params.require(:user).permit(:username, :password, :password_confirmation)
+    @user = User.new params.require(:user).permit(:username, :image_url, :password, :password_confirmation)
     if @user.save
       session[:user_id] = @user.id
       redirect_to dashboard_path

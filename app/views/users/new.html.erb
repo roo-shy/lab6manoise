@@ -1,5 +1,6 @@
 <div class="container">
-  <h1 div class="text-center">Sign Up!</h1>
+  <div class="wrapper">
+ <h1 div class="text-center">Sign Up Here</h1>
   <%= simple_form_for @user do |f| %>
   <div class="form-group">
     <%= f.input :username, required: false, autofocus: true, label: false, placeholder: "Username", input_html: {class: "form-control"} %>
@@ -12,4 +13,5 @@
   </div>
   <%= f.button :submit, "Sign Up", class: "btn btn-primary btn-block" %>
   <% end %>
+   </div>
 </div>

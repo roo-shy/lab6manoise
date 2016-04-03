@@ -9,7 +9,12 @@
     </h3>
   </div>
   <div class="col-md-8"></div>
-  <% @user.manoises.each do |m| %>
-  <%= m.post %>
+  <% @user.manoises.each do |mn|  %>
+  <%= mn.post %>
+  <% if @user.following? @user %>
+  <%= link_to "Stop Following", stop_follow_user_path(id: @user.id), method: :post %>
+  <% else %>
+  <%= link_to "Follow", follow_user_path(id: @user.id), method: :post%>
   <% end %>
+<% end %>
 </div>
