@@ -2,7 +2,7 @@
 <h1>Users</h1>
 <% @user.each do |user| %>
 <ul>
-<li><strong><%= user.username %></strong></li>
+<li><strong><%= link_to user.username, user_path(id: user.id) %></strong></li>
 <% user.manoises.reverse.each do |mn|  %>
 <li>
   <small><%=mn.post%></small>
