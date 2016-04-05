@@ -2,7 +2,7 @@ User.create username: "kacie", password: "12345678"
 
 # Seed the users
 30.times do
-user = User.create username: Faker::Internet.user_name, image_url: "http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-bad-werewolf.png", password: "password", password_confirmation: "password"
+user = User.create username: Faker::Internet.user_name, image_url: Faker::Avatar.image, password: "password", password_confirmation: "password"
 end
 
 

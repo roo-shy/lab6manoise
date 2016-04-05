@@ -2,19 +2,18 @@
 <div class="container">
   <div class="col-md-4">
     <div class="image_profile">
-      <img src="http://www.themarysue.com/wp-content/uploads/2013/05/tumblr_mnhcizzGwr1qzfsnio3_1280-580x435.jpg" alt="" class="img-rounded" style="width:350px;"/>
-    </div>
+      <img src="<%= @user.image_url%>" alt="" />
+        </div>
     <h3>
       <strong><%= @user.username %></strong>
     </h3>
   </div>
   <div class="col-md-8"></div>
-  <% @user.manoises.each do |mn|  %>
+  <% @user.manoises.reverse.each do |mn|  %>
   <%= mn.post %>
-  <% if @user.following? @user %>
-  <%= link_to "Stop Following", stop_follow_user_path(id: @user.id), method: :post %>
-  <% else %>
-  <%= link_to "Follow", follow_user_path(id: @user.id), method: :post%>
   <% end %>
-<% end %>
+  <%= link_to "Stop Following", stop_follow_user_path(id: @user.id), method: :post %>
+
+  <%= link_to "Follow", follow_user_path(id: @user.id), method: :post%>
+
 </div>
