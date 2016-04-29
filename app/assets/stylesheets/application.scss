@@ -9,10 +9,6 @@
   margin-top: 50px;
 }
 
-.body{
-  background: #000000;
-}
-
 ul {
   display: flex;
   justify-content: flex-start;
@@ -30,12 +26,24 @@ li{
 }
 
 .image{
-  width: 750px;
-  height:50%;
-  margin-left: -450px;
-  margin-top: -200px;
-
+  margin-top:-70px;
+  margin-left: -40px;
+  background-size: cover;
 }
+
+.col-lg-4{
+  position: absolute;
+  top:-50px;
+  left:50px;
+}
+
+.continue{
+  z-index: 3;
+  position: relative;
+  top:-50px;
+  left:50px;
+}
+
 .navbar-inverse .navbar-nav > li > a{
   color:#D1142A;
 }
@@ -53,3 +61,13 @@ body{
   background-color:#c0392b;
   border-color:#c0392b;
 }
+
+ @media screen and (max-width: 400px) {
+     font-size: 16px;
+     .center-tagline {
+       font-size: 36px;
+        .continue, .col-lg-4{
+         left: 10px;
+         }
+       }
+     }

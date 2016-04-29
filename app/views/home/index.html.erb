@@ -1,12 +1,14 @@
-<div class="col-md-8">
-  <div class="image">
-    <%= link_to image_tag('http://manostheriseoftorgo.com/images/bg.jpg')%>
+<div class="image">
+  <%= link_to image_tag('http://manostheriseoftorgo.com/images/bg.jpg'),  class: "img-responsive";%>
+
+  <div class="col-xs-4">
+    <div class="continue">
+      <h1 style="color:#ffffff;">Welcome To Manoise</h1>
+      <p style="color:#ffffff;">
+        Master has to approve your noise</p>
+    </br>
+    <p><%= link_to "Continue", sign_in_path, class: "btn btn-primary btn-lg" %></p>
   </div>
 </div>
-<div class="col-md-4">
-  <h1 style="color:#ffffff;">Welcome To Manoise</h1>
-  <p style="color:#ffffff;">
-    Master has to approve your noise</p>
-</br>
-<p><%= link_to "Continue", sign_in_path, class: "btn btn-primary btn-lg" %></p>
+</div>
 </div>
