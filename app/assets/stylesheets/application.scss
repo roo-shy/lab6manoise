@@ -25,10 +25,22 @@ li{
   display: inline;
 }
 
-.image{
-  margin-top:-70px;
-  margin-left: -40px;
-  background-size: cover;
+h1{
+  font-family: 'Francois One', sans-serif;
+}
+
+.image {
+  margin-top:-150px;
+  margin-left: -420px;
+  max-width:500px;
+
+}
+
+.continue{
+  z-index: 3;
+  position: relative;
+  top:-750px;
+  left: -100px;
 }
 
 .col-lg-4{
@@ -37,11 +49,10 @@ li{
   left:50px;
 }
 
-.continue{
-  z-index: 3;
-  position: relative;
-  top:-50px;
-  left:50px;
+body > div > img {
+  position:absolute;
+  top:0px;
+  left:0px;
 }
 
 .navbar-inverse .navbar-nav > li > a{
@@ -62,12 +73,18 @@ body{
   border-color:#c0392b;
 }
 
+@media screen and (max-width: 768px) {
+  .continue{
+   left: 0px;
+   }
+}
+
  @media screen and (max-width: 400px) {
      font-size: 16px;
      .center-tagline {
        font-size: 36px;
-        .continue, .col-lg-4{
-         left: 10px;
+        .continue{
+         left: -50px;
          }
        }
      }
