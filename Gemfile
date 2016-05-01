@@ -63,6 +63,3 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 
 gem "acts_as_follower"
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
-gem 'refile-postgres', '1.2'
