@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
 
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use postgresql as the database for Active Record
@@ -64,7 +66,3 @@ gem "acts_as_follower"
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem 'refile-postgres', '1.2'
-
-group :production do
-  gem 'rails_12factor'
-end
