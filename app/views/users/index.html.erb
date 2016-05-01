@@ -1,4 +1,5 @@
 <%= render "layouts/header" %>
+<div class="container">
 <h1>Users</h1>
 <% @user.each do |user| %>
 <ul>
@@ -18,3 +19,4 @@
 <% end %>
 <%end %>
 <nav><%= paginate @user %></nav>
+</div>
