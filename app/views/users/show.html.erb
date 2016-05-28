@@ -1,19 +1,19 @@
 <%= render "layouts/header" %>
 <div class="container">
   <div class="col-md-4">
-    <div class="image_profile">
-      <img src="<%= @user.image_url%>" alt="" />
-        </div>
-    <h3>
+    <h3 style="text-align:left;">
       <strong><%= @user.username %></strong>
     </h3>
+    <div class="image_profile">
+      <img src="<%= @user.image_url%>" alt="" />
+    </div>
   </div>
-  <div class="col-md-8"></div>
+  <div class="col-md-5">
   <% @user.manoises.reverse.each do |mn|  %>
   <%= mn.post %>
   <% end %>
-  <%= link_to "Stop Following", stop_follow_user_path(id: @user.id), method: :post %>
-
-  <%= link_to "Follow", follow_user_path(id: @user.id), method: :post%>
-
+</br>
+</br>
+  <%= link_to "Stop Following", stop_follow_user_path(id: @user.id), class:"btn btn-primary", method: :post %>
+</div>
 </div>
