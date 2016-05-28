@@ -4,7 +4,6 @@
   <div class="col-md-4">
     <h1>Users</h1>
     <% @user.each do |user| %>
-  </br>
 </br>
 <ul>
   <li>
@@ -24,6 +23,8 @@
 <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
 <% else %>
 <%= link_to "Follow", follow_user_path(id: user.id), class:"btn btn-primary", method: :post%>
+</br>
+</br>
 <% end %>
 <%end %>
 
