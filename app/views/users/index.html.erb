@@ -18,6 +18,7 @@
 <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
 <% else %>
 </br>
+</br>
 <%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
 <% end %>
 <%end %>
