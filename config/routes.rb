@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-
+  root 'home#index'
   get '/users/new' => 'users#new', as: :new_user
   get '/users' => 'users#index', as: :users
   get '/users/:id/profile' => 'users#show', as: :user
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
 
   post 'user/:id/follow' => 'follow#create', as: :follow_user
   post 'user/:id/stop-follow' => 'follow#delete', as: :stop_follow_user
-  root 'home#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
