@@ -2,6 +2,8 @@
 <div class="container">
 <h1>Users</h1>
 <% @user.each do |user| %>
+</br>
+<hr>
 <ul>
 <li><strong><%= link_to user.username, user_path(id: user.id) %></strong></li>
 <% user.manoises.reverse.each do |mn|  %>
@@ -15,8 +17,11 @@
 <% if user.following? user %>
 <%= link_to "Stop Following", stop_follow_user_path(id: user.id), method: :post %>
 <% else %>
+</br>
+</br>
 <%= link_to "Follow", follow_user_path(id: user.id), method: :post%>
 <% end %>
 <%end %>
+
 <nav><%= paginate @user %></nav>
 </div>
