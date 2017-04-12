@@ -2,17 +2,17 @@
 
 This app includes following features:
 
--[x] authentication, sessions, and current_user
+- [x] authentication, sessions, and current_user
 
--[x] bootstrap-sass
+- [x] bootstrap-sass
 
--[x] acts_as_follower gem
+- [x] acts_as_follower gem
 
--[x] Validations
+- [x] Validations
 
--[x] Capybara and MiniTest
+- [x] Capybara and MiniTest
 
--[x] TravisCI instance running feature tests
+- [x] TravisCI instance running feature tests
 
 
 
